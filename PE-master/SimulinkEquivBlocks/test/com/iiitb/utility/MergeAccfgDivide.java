@@ -106,7 +106,7 @@ public class MergeAccfgDivide {
 
 		  
 		  assertEquals(3, sortedList.size());
-		  String[] testSort = {"Constant1","Constant","Divide"};
+		  String[] testSort = {"Constant","Constant1","Divide"};
 		  assertArrayEquals(testSort, sortedList.toArray());
 		  
 		  

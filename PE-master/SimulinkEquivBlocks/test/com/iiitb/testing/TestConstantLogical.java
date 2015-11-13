@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -30,7 +31,7 @@ import com.iiitb.utility.MergeAccfgTest;
 import com.iiitb.utility.ParseXML;
 
 public class TestConstantLogical {
-
+	static String path="C:/Users/avi\\Documents\\Avinash_matlab\\";
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
@@ -54,7 +55,7 @@ public class TestConstantLogical {
 	@Test
 	public void test() {
 		Document doc = ParseXML
-				.initializeDocument("C:\\Users\\vsriganesh\\Documents\\MATLAB\\ConstantLogical.xml");
+				.initializeDocument(path+"ConstantLogical.xml");
 		
 		
 		/* TEST : 1

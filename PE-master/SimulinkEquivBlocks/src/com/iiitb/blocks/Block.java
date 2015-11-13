@@ -18,6 +18,7 @@ public abstract class Block implements IBlock,IProgram {
 	private Expression output;
 	private String value;
 	private int sign;
+	private int Gain;
 	private Accfg accfg;
 
 	boolean inputSetFlag = false;
@@ -28,6 +29,7 @@ public abstract class Block implements IBlock,IProgram {
 	// Methods overridden for IProgram  - STARTS
 	
 	public boolean isExpressionSet() {
+		
 		return expressionSet;
 	}
 
@@ -153,6 +155,14 @@ public abstract class Block implements IBlock,IProgram {
 
 		}
 		return false;
+	}
+
+	public int getGain() {
+		return Gain;
+	}
+
+	public void setGain(int gain) {
+		Gain = gain;
 	}
 
 }

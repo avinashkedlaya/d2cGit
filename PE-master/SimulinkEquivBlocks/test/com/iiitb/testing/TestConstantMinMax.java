@@ -16,6 +16,7 @@ import java.util.List;
 
 
 
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -41,7 +42,7 @@ import com.iiitb.utility.MergeAccfgTest;
 import com.iiitb.utility.ParseXML;
 
 public class TestConstantMinMax {
-
+	static String path="C:/Users/avi\\Documents\\Avinash_matlab\\";
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
@@ -65,7 +66,7 @@ public class TestConstantMinMax {
 	@Test
 	public void test() {
 		Document doc = ParseXML
-				.initializeDocument("C:\\Users\\vsriganesh\\Documents\\MATLAB\\ConstantMinMax.xml");
+				.initializeDocument(path+"ConstantMinMax.xml");
 		
 		
 		/* TEST : 1

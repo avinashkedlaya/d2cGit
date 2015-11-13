@@ -46,7 +46,7 @@ import com.iiitb.utility.MergeAccfgTestSubsystem;
 
 public class TestPortBranchSubsystem {
 
-	
+	static String path="C:/Users/avi\\Documents\\Avinash_matlab\\";
 	public static int countSubSystem = 0;
 
 	public static Map<String, Accfg> subSystemMap = new HashMap<String, Accfg>();
@@ -809,7 +809,7 @@ public class TestPortBranchSubsystem {
 	@Test
 	public void test() {
 	
-		Document doc = initializeDocument("C:/Users/vsriganesh/Documents/MATLAB/test2.xml");
+		Document doc = initializeDocument(path+"test2.xml");
 		Accfg finalAccfg = parseDocument(doc,doc.getDocumentElement());
 		
 	}

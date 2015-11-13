@@ -10,38 +10,38 @@ import com.iiitb.cfg.Accfg;
 import com.iiitb.utility.ParseXML;
 
 public class TestFeature {
-
+	static String path="E://9915windows//Desktop//";
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
-			
-			
-			JFrame frame=new JFrame();
-			frame.show();
-			String selectS;
-			int select;
-			selectS = JOptionPane.showInputDialog(frame, "Enter integer value",
-					0);
-			select=Integer.parseInt(selectS);
-			Document doc=null;
-			try {
-				switch (select){
-					case 0:
-				         doc = ParseXML
-						           .initializeDocument("C:\\Users\\vsriganesh\\Documents\\MATLAB\\subsys1.xml");
-				         break;
-					case 1:
-						doc = ParseXML
-				           .initializeDocument("C:\\Users\\vsriganesh\\Documents\\MATLAB\\allblocks_subsys.xml");
-		                break;
-		            default:
-		            	doc = ParseXML
-				           .initializeDocument("C:\\Users\\vsriganesh\\Documents\\MATLAB\\all_blocks.xml");
-		                break;
-				}
-				frame.dispose();
-			
-			
+
+
+
+		JFrame frame=new JFrame();
+		frame.show();
+		String selectS;
+		int select;
+		selectS = JOptionPane.showInputDialog(frame, "Enter integer value",
+				0);
+		select=Integer.parseInt(selectS);
+		Document doc=null;
+		try {
+			switch (select){
+			case 0:
+				doc = ParseXML
+				.initializeDocument("E://9915windows//Desktop//"+"testing.xml");	
+				break;
+			case 1:
+				doc = ParseXML
+				.initializeDocument("E://9915windows//Desktop//"+"gain_xml.xml");
+				break;
+			default:
+				doc = ParseXML
+				.initializeDocument("E://9915windows//Desktop//"+"sinTrigno_xml.xml");
+				break;
+			}
+			frame.dispose();
+
+
 
 			/*
 			 * 
@@ -49,7 +49,7 @@ public class TestFeature {
 			 * the first call since we are at the top most level we pass null to
 			 * currSubSystemNode
 			 */
-			
+
 			Accfg mergedAccfg = ParseXML.parseDocument(doc, doc.getDocumentElement());
 
 			System.out.println("\n\nThe final merged ACCFG is : \n\n"+mergedAccfg);

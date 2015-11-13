@@ -12,6 +12,7 @@ public class Constants {
 	public static final String TYPE = "BlockType";
 	
 	public static final String SUB_SYS = "SubSystem";
+	public static final String GAIN = "Gain";
 	public static final String SUB_SYS_CASE = "Subsystem";
 	
 	public static final String PARA_TAG = "P";
@@ -20,6 +21,8 @@ public class Constants {
 	public static final String DESTINATION = "DstBlock";
 	public static final String CONST = "Constant";
 	public static final String SUM = "Sum";
+	public static final String SQRT = "Sqrt";
+	public static final String SIN = "Trigonometry";
 	public static final String VALUE = "Value";
 	public static final String INPUT = "Inputs";
 	

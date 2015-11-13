@@ -9,17 +9,22 @@ import com.iiitb.blocks.Block;
 import com.iiitb.blocks.Constant;
 import com.iiitb.blocks.Delay;
 import com.iiitb.blocks.Divide;
+import com.iiitb.blocks.Gain;
 import com.iiitb.blocks.InPort;
 import com.iiitb.blocks.LogicalOperator;
 import com.iiitb.blocks.MinMax;
 import com.iiitb.blocks.RelationalOperator;
+import com.iiitb.blocks.Sqrt;
 import com.iiitb.blocks.Subsystem;
 import com.iiitb.blocks.Sum;
 import com.iiitb.blocks.Switch;
+import com.iiitb.blocks.sinTrigno;
 import com.iiitb.cfg.Accfg;
 import com.iiitb.constant.Constants;
 import com.iiitb.utility.BlockFactoryUtility;
 import com.iiitb.utility.ParseXML;
+
+import expression.SinExpression;
 
 public class BlockFactory {
 
@@ -60,6 +65,35 @@ public class BlockFactory {
 					block);
 
 		}
+		if (blockName.startsWith(Constants.SQRT)) {
+			block = new Sqrt(blockName.split("_", 2)[1]+"_SubSystem_"+ParseXML.countSubSystem);
+			
+			List<String> attrFetchList = new ArrayList<String>(); 
+			attrFetchList.add(Constants.INPUT);
+			
+			BlockFactoryUtility.setBlockAttributes(attrFetchList, attributes,
+					block);
+
+		}
+		if (blockName.startsWith(Constants.SIN)) {
+			block = new sinTrigno(blockName.split("_", 2)[1]+"_SubSystem_"+ParseXML.countSubSystem);
+			
+			List<String> attrFetchList = new ArrayList<String>(); 
+			attrFetchList.add(Constants.INPUT);
+			
+			BlockFactoryUtility.setBlockAttributes(attrFetchList, attributes,
+					block);
+
+		}
+		if (blockName.startsWith(Constants.GAIN)) {
+			block = new Gain(blockName.split("_", 2)[1]+"_SubSystem_"+ParseXML.countSubSystem);		
+			List<String> attrFetchList = new ArrayList<String>(); 
+			attrFetchList.add(Constants.GAIN);
+			BlockFactoryUtility.setBlockAttributes(attrFetchList, attributes,
+					block);
+
+		}
+		
 		
 		if (blockName.startsWith(Constants.DELAY)) {
 			

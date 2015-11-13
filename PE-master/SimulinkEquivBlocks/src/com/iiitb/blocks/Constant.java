@@ -20,6 +20,7 @@ public class Constant extends Block {
 
 		super(name);
 		Accfg accfgObj = new Accfg();
+		
 		List<Expression> outputTemp = new ArrayList<Expression>();
 		outputTemp.add(getOutput());
 		accfgObj.setOutput(outputTemp);

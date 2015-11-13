@@ -84,11 +84,13 @@ public class ParseXML {
 				tempForProcessing = currSubSystemNode.getChildNodes();
 				for (int tempForProcessingIter = 0; tempForProcessingIter < tempForProcessing
 						.getLength(); tempForProcessingIter++) {
+					
 					if (tempForProcessing.item(tempForProcessingIter)
 							.getNodeName().equals(Constants.MODEL)) {
 
 						tempForProcessing = tempForProcessing.item(
 								tempForProcessingIter).getChildNodes();
+					
 						break;
 
 					}
@@ -123,8 +125,8 @@ public class ParseXML {
 						.getNodeName().equalsIgnoreCase(Constants.BLOCK)) {
 
 					blockChildNodesOfSystemNodeList
-							.add(tempSubsystemSystemChildren
-									.item(tempForProcessingIter));
+					.add(tempSubsystemSystemChildren
+							.item(tempForProcessingIter));
 
 				}
 
@@ -132,8 +134,8 @@ public class ParseXML {
 						.getNodeName().equalsIgnoreCase(Constants.LINE)) {
 
 					lineChildNodesOfSystemNodeList
-							.add(tempSubsystemSystemChildren
-									.item(tempForProcessingIter));
+					.add(tempSubsystemSystemChildren
+							.item(tempForProcessingIter));
 
 				}
 
@@ -164,10 +166,10 @@ public class ParseXML {
 						// block name will be (for e.g) "constant"
 						if (blockName == "")
 							blockName = temp.item(tempIter).getNodeValue()
-									+ "_";
+							+ "_";
 						else
 							blockName = temp.item(tempIter).getNodeValue()
-									+ "_" + blockName;
+							+ "_" + blockName;
 
 					}
 				}
@@ -188,11 +190,11 @@ public class ParseXML {
 						for (int lineIter = 0; lineIter < lineChildNodesOfSystemNodeList
 								.size(); lineIter++) {
 
-														// tempInputList can be used for testing
+							// tempInputList can be used for testing
 							tempInputList.addAll(FetchInputFromLine
 									.parseLineForPort(
 
-									lineChildNodesOfSystemNodeList
+											lineChildNodesOfSystemNodeList
 											.get(lineIter).getChildNodes(),blockName.split("_", 2)[1]));
 
 						}
@@ -220,10 +222,10 @@ public class ParseXML {
 
 			}
 
-			
-	
-			
-			
+
+
+
+
 			// Setting input to block object's ACCFG based on line tags
 
 			for (int nodeIter = 0; nodeIter < lineChildNodesOfSystemNodeList
@@ -233,7 +235,7 @@ public class ParseXML {
 
 				FetchInputFromLine.parseLine((ArrayList<Block>) blockList,
 						lineChildNodesOfSystemNodeList.get(nodeIter)
-								.getChildNodes());
+						.getChildNodes());
 
 			}
 
@@ -253,6 +255,9 @@ public class ParseXML {
 
 			subSystemMap.put("SubSystem_" + String.valueOf(countSubSystem),
 					retAccfg);
+			
+			
+			
 			return retAccfg;
 
 		} catch (Exception e) {

@@ -9,6 +9,7 @@ import com.iiitb.blocks.Block;
 import com.iiitb.blocks.Constant;
 import com.iiitb.blocks.Delay;
 import com.iiitb.blocks.Divide;
+import com.iiitb.blocks.Gain;
 import com.iiitb.blocks.InPort;
 import com.iiitb.blocks.LogicalOperator;
 import com.iiitb.blocks.MinMax;
@@ -19,6 +20,7 @@ import com.iiitb.constant.Constants;
 import com.iiitb.helper.ConstHelper;
 import com.iiitb.helper.DelayHelper;
 import com.iiitb.helper.DivideHelper;
+import com.iiitb.helper.GainHelper;
 import com.iiitb.helper.InPortHelper;
 import com.iiitb.helper.LogicalHelper;
 import com.iiitb.helper.MinMaxHelper;
@@ -64,7 +66,13 @@ public class BlockFactoryUtility {
 										attrToFetch);
 
 							}
+							if (block.getClass() == Gain.class) {
 
+								helper = new GainHelper();
+								helper.setAttr(attributes, iter, block,
+										attrToFetch);
+
+							}
 							if (block.getClass() == Delay.class) {
 
 								helper = new DelayHelper();

@@ -46,7 +46,7 @@ import com.iiitb.utility.MergeAccfgTestDelay;
 
 
 public class TestSumConstantDelay {
-
+	static String path="C:/Users/avi\\Documents\\Avinash_matlab\\";
 	
 	public static int countSubSystem = 0;
 
@@ -550,7 +550,7 @@ public class TestSumConstantDelay {
 	@Test
 	public void test() {
 	
-		Document doc = initializeDocument("C:/Users/vsriganesh/Documents/MATLAB/delay_timer.xml");
+		Document doc = initializeDocument(path+"delay_timer.xml");
 		Accfg finalAccfg = parseDocument(doc,doc.getDocumentElement());
 		
 	}

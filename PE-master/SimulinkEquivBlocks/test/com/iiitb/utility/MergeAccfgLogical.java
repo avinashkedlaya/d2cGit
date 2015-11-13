@@ -106,7 +106,7 @@ public class MergeAccfgLogical {
 
 		  
 		  assertEquals(3, sortedList.size());
-		  String[] testSort = {"Constant1","Constant","Logical"+"\n"+
+		  String[] testSort = {"Constant","Constant1","Logical"+"\n"+
 		  		"Operator"};
 		  assertArrayEquals(testSort, sortedList.toArray());
 		  

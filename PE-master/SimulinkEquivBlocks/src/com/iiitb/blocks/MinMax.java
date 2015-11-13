@@ -6,8 +6,10 @@ import java.util.List;
 import java.util.Map;
 
 import com.iiitb.cfg.Accfg;
+import com.iiitb.utility.TypeParseXML;
 
 import expression.Expression;
+import expression.Func_call;
 import expression.MinMaxExpression;
 import expression.Variable;
 
@@ -104,8 +106,17 @@ public class MinMax extends Block {
 
 		try {
 			setExpressionSet(true);	
-			return ((new MinMaxExpression(this, inputList, getOutput(),
-					getSign())));
+			Variable v=new Variable("Maxmin", this);
+			if(getSign()==1)
+				{
+				inputList.add(new Variable("Min", this));
+				
+				return ((new Func_call(this, v,inputList, getOutput(),TypeParseXML.getReturnType(v))));
+				}
+			else{
+				inputList.add(new Variable("Max", this));
+				return ((new Func_call(this, new Variable("Maxmin", this),inputList, getOutput(),TypeParseXML.getReturnType(v))));
+			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -34,6 +34,7 @@ import com.iiitb.utility.MergeAccfgTest;
 import com.iiitb.utility.ParseXML;
 
 public class TestConstantSumBlock {
+	static String path="C:/Users/avi\\Documents\\Avinash_matlab\\";
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -58,7 +59,7 @@ public class TestConstantSumBlock {
 	@Test
 	public void test() {
 		Document doc = ParseXML
-				.initializeDocument("C:/Users/vsriganesh/Documents/MATLAB/test1_xml.xml");
+				.initializeDocument(path+"test1_xml.xml");
 		
 		
 		/* TEST : 1
