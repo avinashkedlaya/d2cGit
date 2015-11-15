@@ -1,7 +1,9 @@
 package com.iiitb.utility;
 
+import expression.CompositeType;
 import expression.Type;
 import expression.Variable;
+
 
 
 
@@ -38,10 +40,7 @@ public class TypeParseXML {
 				if(v.getName().equals(eElement.getAttribute("name")))
 				{
 					typeName=eElement.getElementsByTagName("ReturnType").item(0).getTextContent();
-					if(!Type.hasType(typeName))
-					{
-						Type.addType(typeName);
-					}
+					
 					
 				}
 				

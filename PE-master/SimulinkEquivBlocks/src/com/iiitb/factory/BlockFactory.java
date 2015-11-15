@@ -18,7 +18,7 @@ import com.iiitb.blocks.Sqrt;
 import com.iiitb.blocks.Subsystem;
 import com.iiitb.blocks.Sum;
 import com.iiitb.blocks.Switch;
-import com.iiitb.blocks.sinTrigno;
+
 import com.iiitb.cfg.Accfg;
 import com.iiitb.constant.Constants;
 import com.iiitb.utility.BlockFactoryUtility;
@@ -75,16 +75,7 @@ public class BlockFactory {
 					block);
 
 		}
-		if (blockName.startsWith(Constants.SIN)) {
-			block = new sinTrigno(blockName.split("_", 2)[1]+"_SubSystem_"+ParseXML.countSubSystem);
-			
-			List<String> attrFetchList = new ArrayList<String>(); 
-			attrFetchList.add(Constants.INPUT);
-			
-			BlockFactoryUtility.setBlockAttributes(attrFetchList, attributes,
-					block);
-
-		}
+		
 		if (blockName.startsWith(Constants.GAIN)) {
 			block = new Gain(blockName.split("_", 2)[1]+"_SubSystem_"+ParseXML.countSubSystem);		
 			List<String> attrFetchList = new ArrayList<String>(); 
