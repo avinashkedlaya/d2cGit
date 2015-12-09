@@ -13,7 +13,10 @@ import com.iiitb.blocks.Gain;
 import com.iiitb.blocks.InPort;
 import com.iiitb.blocks.LogicalOperator;
 import com.iiitb.blocks.MinMax;
+import com.iiitb.blocks.Mux;
 import com.iiitb.blocks.RelationalOperator;
+import com.iiitb.blocks.Saturation;
+import com.iiitb.blocks.Sin;
 import com.iiitb.blocks.Sum;
 import com.iiitb.blocks.Switch;
 import com.iiitb.constant.Constants;
@@ -24,7 +27,10 @@ import com.iiitb.helper.GainHelper;
 import com.iiitb.helper.InPortHelper;
 import com.iiitb.helper.LogicalHelper;
 import com.iiitb.helper.MinMaxHelper;
+import com.iiitb.helper.MuxHelper;
 import com.iiitb.helper.RelationalHelper;
+import com.iiitb.helper.SaturationHelper;
+import com.iiitb.helper.SinHelper;
 import com.iiitb.helper.SumHelper;
 import com.iiitb.helper.SwitchHelper;
 import com.iiitb.inter.IHelper;
@@ -34,8 +40,8 @@ public class BlockFactoryUtility {
 	public static void setBlockAttributes(List<String> attrToFetchList,
 			NodeList attributes, Block block) {
 		IHelper helper = null;
-		
-		
+
+
 		for (String attrToFetch : attrToFetchList) {
 
 			for (int iter = 0; iter < attributes.getLength(); iter++) {
@@ -47,12 +53,12 @@ public class BlockFactoryUtility {
 					NamedNodeMap temp = attributes.item(iter).getAttributes();
 
 					for (int tempIter = 0; tempIter < temp.getLength(); tempIter++) {
-					
+
 						if (temp.item(tempIter).getNodeValue()
 								.equalsIgnoreCase(attrToFetch)) {
 
 							if (block.getClass() == Constant.class) {
-								
+
 								helper = new ConstHelper();
 								helper.setAttr(attributes, iter, block,
 										attrToFetch);
@@ -97,7 +103,7 @@ public class BlockFactoryUtility {
 
 							}
 
-							
+
 							if (block.getClass() == RelationalOperator.class) {
 
 								helper = new RelationalHelper();
@@ -113,8 +119,8 @@ public class BlockFactoryUtility {
 										attrToFetch);
 
 							}
-							
-						
+
+
 							if (block.getClass() == MinMax.class) {
 
 								helper = new MinMaxHelper();
@@ -122,17 +128,42 @@ public class BlockFactoryUtility {
 										attrToFetch);
 
 							}
-							
+
 							if (block.getClass() == InPort.class) {
 
-								
+
 								helper = new InPortHelper();
 								helper.setAttr(attributes, iter, block,
 										attrToFetch);
 
 							}
+							if (block.getClass() == Saturation.class) {
+
+
+								helper = new SaturationHelper();
+								helper.setAttr(attributes, iter, block,
+										attrToFetch);
+
+							}
 							
+							if (block.getClass() == Sin.class) {
+
+
+								helper = new SinHelper();
+								helper.setAttr(attributes, iter, block,
+										attrToFetch);
+
+							}
 							
+							if (block.getClass() == Mux.class) {
+
+
+								helper = new MuxHelper();
+								helper.setAttr(attributes, iter, block,
+										attrToFetch);
+
+							}
+
 
 						}
 

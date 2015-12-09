@@ -1,29 +1,27 @@
 package com.iiitb.blocks;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import com.iiitb.cfg.Accfg;
 import com.iiitb.utility.TypeParseXML;
 
-import expression.AddExpression;
 import expression.ConcreteConstant;
 import expression.ConcreteFloatConstant;
 import expression.Expression;
 import expression.Func_call;
-import expression.GainExpression;
 import expression.Variable;
 
-public class Gain extends Block {
+public class Sin extends Block {
 
 
 	private Expression lhs;
 	private Expression name;
 	private List<Expression> args_list=new ArrayList<Expression>();
 	private String input1;
-
+	private float amplitude=1;
+	private int frequency=0;
+	private float STime=0;
 
 	public Expression getLhs() {
 		return lhs;
@@ -53,7 +51,7 @@ public class Gain extends Block {
 		
 		
 			try {
-				Variable v=new Variable("Gain", this);
+				Variable v=new Variable("SinWave", this);
 				
 				return(new Func_call(this, v , args_list,getOutput(),TypeParseXML.getReturnType(v) ));
 				
@@ -94,7 +92,9 @@ public class Gain extends Block {
 			if (lhs != null){
 				setInputSetFlag(true);
 			//System.out.println(getGain()+"sssssssssssssssssssssssssssssssssssssssssss");
-			args_list.add(new ConcreteFloatConstant(getGain(), this, new Variable("K", this)));
+			/*args_list.add(new ConcreteFloatConstant(getAmplitude(), this, new Variable("Amplitude", this)));
+			args_list.add(new ConcreteConstant(getFrequency(), this, new Variable("Frequency", this)));*/
+				args_list.add(new ConcreteFloatConstant(getSTime(), this, new Variable("STime", this)));
 			args_list.add(lhs);
 			}
 			
@@ -106,7 +106,7 @@ public class Gain extends Block {
 
 	}
 
-	public Gain(String blockName) {
+	public Sin(String blockName) {
 		// TODO Auto-generated constructor stub
 
 		super(blockName);
@@ -125,5 +125,31 @@ public class Gain extends Block {
 	public void setName(Expression name) {
 		this.name = name;
 	}
+
+	public float getAmplitude() {
+		return amplitude;
+	}
+
+	public void setAmplitude(float amplitude) {
+		this.amplitude = amplitude;
+	}
+
+	public int getFrequency() {
+		return frequency;
+	}
+
+	public void setFrequency(int frequency) {
+		this.frequency = frequency;
+	}
+
+	public float getSTime() {
+		return STime;
+	}
+
+	public void setSTime(float f) {
+		STime = f;
+	}
+
+	
 }
 

@@ -128,6 +128,7 @@ public class ParseXML {
 					.add(tempSubsystemSystemChildren
 							.item(tempForProcessingIter));
 
+					//System.out.println(blockChildNodesOfSystemNodeList);
 				}
 
 				if (tempSubsystemSystemChildren.item(tempForProcessingIter)
@@ -174,10 +175,10 @@ public class ParseXML {
 					}
 				}
 
-				if (blockName != "" && blockType != null) {
+				if (blockName != "" && blockType != null && !(blockName.equalsIgnoreCase("SubSystem_More Info"))) {
 
-					if (blockName.startsWith(Constants.SUB_SYS)) {
-
+					if (blockName.startsWith(Constants.SUB_SYS)   ) {
+						
 						countSubSystem++;
 
 						ArrayList<String> tempInputList = new ArrayList<String>();
@@ -212,7 +213,7 @@ public class ParseXML {
 						NodeList attr = blockType.getChildNodes();
 
 						// Simulink blocks to java library blocks
-
+						//System.out.println(blockName);
 						Block block = BlockFactory.generateBlock(blockName,
 								attr);
 						if (block != null)

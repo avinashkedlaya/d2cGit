@@ -1,22 +1,17 @@
 package com.iiitb.blocks;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import com.iiitb.cfg.Accfg;
 import com.iiitb.utility.TypeParseXML;
 
-import expression.AddExpression;
-import expression.ConcreteConstant;
 import expression.ConcreteFloatConstant;
 import expression.Expression;
 import expression.Func_call;
-import expression.GainExpression;
 import expression.Variable;
 
-public class Gain extends Block {
+public class Saturation extends Block {
 
 
 	private Expression lhs;
@@ -53,7 +48,7 @@ public class Gain extends Block {
 		
 		
 			try {
-				Variable v=new Variable("Gain", this);
+				Variable v=new Variable("Saturate", this);
 				
 				return(new Func_call(this, v , args_list,getOutput(),TypeParseXML.getReturnType(v) ));
 				
@@ -69,6 +64,7 @@ public class Gain extends Block {
 	public ArrayList<Expression> getInput() {
 		List<Expression> inputs = new ArrayList<Expression>();
 		inputs.add(getLhs());
+		
 		return (ArrayList<Expression>)inputs;
 	}
 
@@ -94,7 +90,8 @@ public class Gain extends Block {
 			if (lhs != null){
 				setInputSetFlag(true);
 			//System.out.println(getGain()+"sssssssssssssssssssssssssssssssssssssssssss");
-			args_list.add(new ConcreteFloatConstant(getGain(), this, new Variable("K", this)));
+				args_list.add(new ConcreteFloatConstant(getUpper(), this, new Variable("Upper", this)));
+				args_list.add(new ConcreteFloatConstant(getLower(), this, new Variable("Lower", this)));
 			args_list.add(lhs);
 			}
 			
@@ -106,7 +103,7 @@ public class Gain extends Block {
 
 	}
 
-	public Gain(String blockName) {
+	 public Saturation(String blockName) {
 		// TODO Auto-generated constructor stub
 
 		super(blockName);

@@ -7,6 +7,7 @@ import java.util.Set;
 import com.iiitb.cfg.Accfg;
 
 import expression.ConcreteConstant;
+import expression.ConcreteFloatConstant;
 import expression.Expression;
 import expression.Variable;
 
@@ -20,7 +21,7 @@ public class Constant extends Block {
 
 		super(name);
 		Accfg accfgObj = new Accfg();
-		
+
 		List<Expression> outputTemp = new ArrayList<Expression>();
 		outputTemp.add(getOutput());
 		accfgObj.setOutput(outputTemp);
@@ -72,6 +73,15 @@ public class Constant extends Block {
 			return new ConcreteConstant(Integer.parseInt(getValue()), this,getOutput());
 		} catch (NumberFormatException e) {
 			// TODO Auto-generated catch block
+			try {
+				setExpressionSet(true);
+				return new ConcreteFloatConstant(Float.parseFloat(getValue()), this,getOutput());
+			} catch (Exception e2) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+
+
 			e.printStackTrace();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -81,7 +91,7 @@ public class Constant extends Block {
 		setExpressionSet(true);
 		return retVar;
 
-		
+
 
 	}
 

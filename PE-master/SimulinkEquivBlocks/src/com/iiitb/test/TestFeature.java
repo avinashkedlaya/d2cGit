@@ -28,7 +28,7 @@ public class TestFeature {
 			switch (select){
 			case 0:
 				doc = ParseXML
-				.initializeDocument("E://9915windows//Desktop//"+"testing.xml");	
+				.initializeDocument("E://9915windows//Desktop//"+"zerocrossing.xml");	
 				break;
 			case 1:
 				doc = ParseXML

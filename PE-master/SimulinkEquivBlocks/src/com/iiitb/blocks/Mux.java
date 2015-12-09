@@ -1,28 +1,24 @@
 package com.iiitb.blocks;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import com.iiitb.cfg.Accfg;
 import com.iiitb.utility.TypeParseXML;
 
-import expression.AddExpression;
-import expression.ConcreteConstant;
 import expression.ConcreteFloatConstant;
 import expression.Expression;
 import expression.Func_call;
-import expression.GainExpression;
 import expression.Variable;
 
-public class Gain extends Block {
+public class Mux extends Block {
 
 
 	private Expression lhs;
 	private Expression name;
 	private List<Expression> args_list=new ArrayList<Expression>();
 	private String input1;
+	private int inputLines;
 
 
 	public Expression getLhs() {
@@ -53,8 +49,8 @@ public class Gain extends Block {
 		
 		
 			try {
-				Variable v=new Variable("Gain", this);
-				
+				Variable v=new Variable("Mux", this);
+				args_list.add(new ConcreteFloatConstant(getInputLines(), this, new Variable("dataIn", this)));
 				return(new Func_call(this, v , args_list,getOutput(),TypeParseXML.getReturnType(v) ));
 				
 			} catch (Exception e) {
@@ -69,6 +65,7 @@ public class Gain extends Block {
 	public ArrayList<Expression> getInput() {
 		List<Expression> inputs = new ArrayList<Expression>();
 		inputs.add(getLhs());
+		
 		return (ArrayList<Expression>)inputs;
 	}
 
@@ -94,7 +91,8 @@ public class Gain extends Block {
 			if (lhs != null){
 				setInputSetFlag(true);
 			//System.out.println(getGain()+"sssssssssssssssssssssssssssssssssssssssssss");
-			args_list.add(new ConcreteFloatConstant(getGain(), this, new Variable("K", this)));
+				
+				
 			args_list.add(lhs);
 			}
 			
@@ -106,7 +104,7 @@ public class Gain extends Block {
 
 	}
 
-	public Gain(String blockName) {
+	 public Mux(String blockName) {
 		// TODO Auto-generated constructor stub
 
 		super(blockName);
@@ -125,5 +123,12 @@ public class Gain extends Block {
 	public void setName(Expression name) {
 		this.name = name;
 	}
-}
 
+	public int getInputLines() {
+		return inputLines;
+	}
+
+	public void setInputLines(int inputLines) {
+		this.inputLines = inputLines;
+	}
+}

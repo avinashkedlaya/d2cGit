@@ -12,10 +12,10 @@ public class GainHelper implements IHelper {
 		// TODO Auto-generated method stub
 		if(attributes.item(iter).getTextContent()!= null && attributes.item(iter).getTextContent() !="" )
 			{
-			block.setGain(Integer.parseInt(attributes.item(iter).getTextContent()));
+			block.setGain(Float.parseFloat(attributes.item(iter).getTextContent()));
 			
 			}
 			else
-				block.setValue("1");
+				block.setGain(1);
 	}
 }

@@ -7,11 +7,14 @@ public class Constants {
 	public static final String SYSTEM = "System";
 	public static final String BLOCK = "Block";
 	public static final String LINE = "Line";
-
+	public static final String SAT = "Saturate";
 	public static final String NAME = "Name";
 	public static final String TYPE = "BlockType";
 	
 	public static final String SUB_SYS = "SubSystem";
+	public static final String SIN = "Sin";
+	public static final String FREQUENCY = "Frequency";
+	public static final String AMPLITUDE = "Amplitude";
 	public static final String GAIN = "Gain";
 	public static final String SUB_SYS_CASE = "Subsystem";
 	
@@ -20,9 +23,10 @@ public class Constants {
 
 	public static final String DESTINATION = "DstBlock";
 	public static final String CONST = "Constant";
+	public static final String MUX = "Mux";
 	public static final String SUM = "Sum";
 	public static final String SQRT = "Sqrt";
-	public static final String SIN = "Trigonometry";
+	
 	public static final String VALUE = "Value";
 	public static final String INPUT = "Inputs";
 	
@@ -35,7 +39,7 @@ public class Constants {
 	public static final String CRITERIA = "Criteria";
 	public static final String THRESHOLD = "Threshold";
 	
-	
+	public static final String ABS = "Abs";
 	
 	public static final String DIVIDE = "Product";
 	

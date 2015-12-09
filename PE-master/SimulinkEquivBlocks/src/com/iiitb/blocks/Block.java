@@ -18,7 +18,9 @@ public abstract class Block implements IBlock,IProgram {
 	private Expression output;
 	private String value;
 	private int sign;
-	private int Gain;
+	private float Gain;
+	private float Upper;
+	private float Lower;
 	private Accfg accfg;
 
 	boolean inputSetFlag = false;
@@ -157,12 +159,28 @@ public abstract class Block implements IBlock,IProgram {
 		return false;
 	}
 
-	public int getGain() {
+	public float getGain() {
 		return Gain;
 	}
 
-	public void setGain(int gain) {
+	public void setGain(float gain) {
 		Gain = gain;
+	}
+
+	public float getUpper() {
+		return Upper;
+	}
+
+	public void setUpper(float upper) {
+		Upper = upper;
+	}
+
+	public float getLower() {
+		return Lower;
+	}
+
+	public void setLower(float lower) {
+		Lower = lower;
 	}
 
 }
