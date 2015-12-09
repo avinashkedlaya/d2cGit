@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Library>
+    <Func name="Sqrt">
+        <ReturnType>FLOAT</ReturnType>
+    </Func>
+    
+    <Func name="Gain">
+        <ReturnType>FLOAT</ReturnType>
+    </Func>
+    <Func name="Sum">
+        <ReturnType>INT</ReturnType>
+    </Func>
+
+<Func name="Maxmin">
+        <ReturnType>INT</ReturnType>
+    </Func>
+
+<Func name="Sin">
+        <ReturnType>FLOAT</ReturnType>
+    </Func>
+	
+<Func name="Abs">
+    <ReturnType>INT</ReturnType>
+</Func>
+
+<Func name="Sin Wave">
+    <ReturnType>FLOAT</ReturnType>
+</Func>
+
+<Func name="Mux">
+    <ReturnType>INT</ReturnType>
+</Func>
+
+<Func name="Saturate">
+    <ReturnType>FLOAT</ReturnType>
+</Func>
+</Library>
